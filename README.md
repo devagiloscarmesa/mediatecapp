@@ -1,3 +1,9 @@
+# Introduction
+
+MeadiaTecApp es una aplicación desarrollada en React, diseñada para tener un modelo de aplicación que debe ser implementados por los estudiantes de la alianza media técnica con el Politécnico Colombiano Jaime Isaza Cadavid
+
+## Installation
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
