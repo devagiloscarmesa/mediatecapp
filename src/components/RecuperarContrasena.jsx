@@ -1,20 +1,41 @@
 import React, { Component } from 'react'
 import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap'
-import  Bootbox  from  'bootbox-react';
+import { CONTRASENA_USUARIO, CUENTA_USUARIO } from '../constantes'
+import Dialog from 'react-bootstrap-dialog'
 import Cargador from './Cargador'
 
 export default class RecuperarContrasena extends Component {
 
-    constructor(){
+    constructor() {
         super()
         this.state = {
-            cargando : false
+            cargando: false
         }
     }
     obtenerCredenciales = e => {
         e.preventDefault()
-        this.setState({cargando:true})
-        setTimeout(() => { this.setState({cargando:false}) },2000)
+
+        this.setState({ cargando: true })
+        setTimeout(() => {
+            this.setState({ cargando: false })
+            this.dialog.show({
+                title: 'Credenciales',
+                body: <>
+                    <b>Cuenta: </b> {CUENTA_USUARIO}<br />
+                    <b>Contraseña: </b> {CONTRASENA_USUARIO}
+                </>,
+                actions: [
+                    Dialog.OKAction((dialog) => {
+                        dialog.hide()
+                        this.props.history.push('/iniciar-sesion')
+                    })
+                ],
+                bsSize: 'small',
+                onHide: (dialog) => {
+                    dialog.hide()
+                }
+            })
+        }, 2000)
     }
 
 
@@ -50,11 +71,11 @@ export default class RecuperarContrasena extends Component {
                         </Form>
                     </Col>
                 </Row>
-             
-            <Cargador visible={this.state.cargando}/>
+                <Dialog ref={(component) => { this.dialog = component }} />
+                <Cargador visible={this.state.cargando} />
             </Container>
 
-            
+
         )
     }
 }

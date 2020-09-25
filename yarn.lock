@@ -2548,23 +2548,7 @@ boolbase@^1.0.0, boolbase@~1.0.0:
   resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
   integrity sha1-aN/1++YMUes3cl6p4+0xDcwed24=
 
-bootbox-react@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.npm.taobao.org/bootbox-react/download/bootbox-react-1.1.1.tgz#2342cb8b1c1050313941dc98ced8b26dafc6dbd2"
-  integrity sha1-I0LLixwQUDE5QdyYztiyba/G29I=
-  dependencies:
-    bootbox "^5.4.0"
-
-bootbox@^5.4.0:
-  version "5.4.0"
-  resolved "https://registry.npm.taobao.org/bootbox/download/bootbox-5.4.0.tgz#2857a63c270b1b797d62e4c5597e74b497267655"
-  integrity sha1-KFemPCcLG3l9YuTFWX50tJcmdlU=
-  dependencies:
-    bootstrap "^4.4.0"
-    jquery "^3.4.1"
-    popper.js "^1.16.0"
-
-bootstrap@^4.4.0, bootstrap@^4.5.2:
+bootstrap@^4.5.2:
   version "4.5.2"
   resolved "https://registry.npm.taobao.org/bootstrap/download/bootstrap-4.5.2.tgz?cache=0&sync_timestamp=1596731358151&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fbootstrap%2Fdownload%2Fbootstrap-4.5.2.tgz#a85c4eda59155f0d71186b6e6ad9b875813779ab"
   integrity sha1-qFxO2lkVXw1xGGtuatm4dYE3eas=
@@ -6253,11 +6237,6 @@ jest@24.9.0:
     import-local "^2.0.0"
     jest-cli "^24.9.0"
 
-jquery@^3.4.1:
-  version "3.5.1"
-  resolved "https://registry.npm.taobao.org/jquery/download/jquery-3.5.1.tgz#d7b4d08e1bfdb86ad2f1a3d039ea17304717abb5"
-  integrity sha1-17TQjhv9uGrS8aPQOeoXMEcXq7U=
-
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
@@ -7752,11 +7731,6 @@ pnp-webpack-plugin@1.6.4:
   dependencies:
     ts-pnp "^1.1.6"
 
-popper.js@^1.16.0:
-  version "1.16.1"
-  resolved "https://registry.npm.taobao.org/popper.js/download/popper.js-1.16.1.tgz#2a223cb3dc7b6213d740e40372be40de43e65b1b"
-  integrity sha1-KiI8s9x7YhPXQOQDcr5A3kPmWxs=
-
 portfinder@^1.0.26:
   version "1.0.28"
   resolved "https://registry.npm.taobao.org/portfinder/download/portfinder-1.0.28.tgz#67c4622852bd5374dd1dd900f779f53462fac778"
@@ -8698,6 +8672,11 @@ react-app-polyfill@^1.0.6:
     raf "^3.4.1"
     regenerator-runtime "^0.13.3"
     whatwg-fetch "^3.0.0"
+
+react-bootstrap-dialog@^0.13.0:
+  version "0.13.0"
+  resolved "https://registry.npm.taobao.org/react-bootstrap-dialog/download/react-bootstrap-dialog-0.13.0.tgz#75f22c3e590c61a3e6711c4535fe3f180f4b7063"
+  integrity sha1-dfIsPlkMYaPmcRxFNf4/GA9LcGM=
 
 react-bootstrap@^1.3.0:
   version "1.3.0"
