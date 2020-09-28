@@ -6,7 +6,6 @@ import NavBar from "./Navbar";
 class Content extends React.Component {
 	constructor(props){
     super()
-    this.contetent = props.contetent
   }
   render() {
     return (
@@ -15,7 +14,7 @@ class Content extends React.Component {
         className={classNames("content", { "is-open": this.props.isOpen })}
       >
         <NavBar toggle={this.props.toggle} />
-        {React.createElement(this.contetent)}
+        {React.createElement(this.props.contetent)}
       </Container>
     );
   }

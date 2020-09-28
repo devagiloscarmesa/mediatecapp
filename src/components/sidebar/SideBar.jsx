@@ -13,6 +13,7 @@ import SubMenu from "./SubMenu";
 import { Nav, Image } from "react-bootstrap";
 import classNames from "classnames";
 import logo from '../../images/logoMTApp.png'
+import { Link } from "react-router-dom";
 
 class SideBar extends React.Component {
   render() {
@@ -25,10 +26,10 @@ class SideBar extends React.Component {
         <Nav className="flex-column pt-2">
           <p className="ml-3">Menú</p>
           <Nav.Item className="active">
-            <Nav.Link href="/">
+            <Link to="/inicio" className="nav-link">
               <FontAwesomeIcon icon={faHome} className="mr-2" />
               Inicio
-            </Nav.Link>
+            </Link>
           </Nav.Item>
 
           <SubMenu
@@ -38,17 +39,17 @@ class SideBar extends React.Component {
           />
 
           <Nav.Item>
-            <Nav.Link href="/">
+            <Link to="/modulos" className="nav-link">
               <FontAwesomeIcon icon={faBriefcase} className="mr-2" />
               Módulos
-            </Nav.Link>
+            </Link>
           </Nav.Item>
 
           <Nav.Item>
-            <Nav.Link href="/">
+            <Link to="/colegios" className="nav-link">
               <FontAwesomeIcon icon={faImage} className="mr-2" />
               Colegios
-            </Nav.Link>
+            </Link>
           </Nav.Item>
 
           <Nav.Item>

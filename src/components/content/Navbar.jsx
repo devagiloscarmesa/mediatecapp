@@ -1,8 +1,8 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignOutAlt, faAlignLeft, faUserAlt, faUserCircle } from "@fortawesome/free-solid-svg-icons";
-import { Navbar, Button, Nav, Dropdown, Container, NavDropdown, Form, FormControl } from "react-bootstrap";
-import { Link, Route, Router } from "react-router-dom";
+import { Navbar, Button, Nav, NavDropdown } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -21,8 +21,9 @@ class NavBar extends React.Component {
               <Button variant="outline-info" onClick={this.props.toggle}>
                 <FontAwesomeIcon icon={faAlignLeft} />
               </Button>
-              <Nav.Link href="/">Inicio</Nav.Link>
-              <Nav.Link href="/contacto">Contactenos</Nav.Link>
+              <Link to="/inicio" className="nav-link">Inicio</Link>
+              <Link to="/contactanos" className="nav-link">Contactenos</Link>
+
               <div id="drop-user-menu">
               <NavDropdown alignRight title={<img src="https://www.tutorialrepublic.com/examples/images/avatar/3.jpg" width="40" height="40" className="rounded-circle"/>} >
                 <NavDropdown.Item href="/usuario/perfil"><FontAwesomeIcon icon={faUserAlt} className="mr-2" />Perfil</NavDropdown.Item>
@@ -39,5 +40,4 @@ class NavBar extends React.Component {
     );
   }
 }
-
 export default NavBar;
