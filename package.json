@@ -12,8 +12,14 @@
     "react-bootstrap": "^1.3.0",
     "react-bootstrap-dialog": "^0.13.0",
     "react-dom": "^16.13.1",
+    "react-notifications": "^1.7.2",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "@fortawesome/fontawesome-svg-core": "^1.2.19",
+    "@fortawesome/free-brands-svg-icons": "^5.9.0",
+    "@fortawesome/free-regular-svg-icons": "^5.9.0",
+    "@fortawesome/free-solid-svg-icons": "^5.9.0",
+    "@fortawesome/react-fontawesome": "^0.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
