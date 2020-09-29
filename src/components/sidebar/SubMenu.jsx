@@ -3,6 +3,7 @@ import { Accordion, Nav } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons";
 import classNames from "classnames";
+import { Link } from "react-router-dom";
 
 class SubMenu extends React.Component {
   constructor(props) {
@@ -42,15 +43,15 @@ class SubMenu extends React.Component {
           <Accordion.Collapse eventKey="0">
             <nav className="nav flex-column">
               {items.map(item => (
-                <a
+                <Link
                   className={`nav-link nav-item pl-5 ${
-                    item === "Active" ? "active" : ""
+                    item.active === "Active" ? "active" : ""
                   } `}
-                  href="/"
-                  key={item}
+                  to={item.link}
+                  key={item.text}
                 >
-                  {item}
-                </a>
+                  {item.text}
+                </Link>
               ))}
             </nav>
           </Accordion.Collapse>

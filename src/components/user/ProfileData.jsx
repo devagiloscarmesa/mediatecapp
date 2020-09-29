@@ -7,7 +7,6 @@ export default class ProfileData extends Component {
     render() {
         return (
             <div>
-
                 <UsuarioContext.Consumer>
                     {user => <>
                         {user !== undefined ?

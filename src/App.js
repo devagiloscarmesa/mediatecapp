@@ -13,6 +13,7 @@ import TechnicalColleges from './components/TechnicalColleges';
 import TechnicalSupport from './components/TechnicalSupport';
 import Help from './components/Help';
 import ProfileData from './components/user/ProfileData';
+import StudentApp from './components/student/StudentApp';
 
 export default class App extends Component { 
   render() {
@@ -30,6 +31,7 @@ export default class App extends Component {
             <Route path='/soporte-tecnico' exact render={(props) => <Main {...props} App = {this} contetent = {TechnicalSupport}/>} />
             <Route path='/ayuda' exact render={(props) => <Main {...props} App = {this} contetent = {Help}/>} />
             <Route path='/usuario/perfil' exact render={(props) => <Main {...props} App = {this} contetent = {ProfileData}/>} />
+            <Route path='/estudiantes/listado' exact render={(props) => <Main {...props} App = {this} contetent = {StudentApp}/>} />
           </Switch>
           </div>
       </BrowserRouter>
