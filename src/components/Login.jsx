@@ -5,7 +5,7 @@ import 'react-notifications/lib/notifications.css';
 import {NotificationContainer, NotificationManager} from 'react-notifications'
 import {Link} from 'react-router-dom'
 import logo from '../images/logoMTApp.png'
-import Cargador from './Cargador';
+import Cargador from './Loader';
 
 export default class Login extends Component {
     constructor(){
@@ -15,6 +15,15 @@ export default class Login extends Component {
             recordar : false,
             correo : null,
             contrasena : null
+        }
+    }
+
+    componentDidMount(){
+        if(localStorage.getItem("usuario") != null){
+            let usuario = JSON.parse(localStorage.getItem("usuario"))
+            if(usuario.correo === CUENTA_USUARIO){
+                this.props.history.push('/inicio')
+            }
         }
     }
 

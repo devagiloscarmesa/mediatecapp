@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap'
 import { CONTRASENA_USUARIO, CUENTA_USUARIO } from '../constantes'
 import Dialog from 'react-bootstrap-dialog'
-import Cargador from './Cargador'
+import Cargador from './Loader'
 
 export default class RecuperarContrasena extends Component {
 

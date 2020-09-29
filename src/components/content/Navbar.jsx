@@ -10,6 +10,11 @@ class NavBar extends React.Component {
 
   }
 
+  logout = (e) => {
+    e.preventDefault()
+    localStorage.removeItem('usuario');
+    this.props.history.push('/iniciar-sesion')
+  }
 
   render() {
     return (
@@ -25,11 +30,11 @@ class NavBar extends React.Component {
               <Link to="/contactanos" className="nav-link">Contactenos</Link>
 
               <div id="drop-user-menu">
-              <NavDropdown alignRight title={<img src="https://www.tutorialrepublic.com/examples/images/avatar/3.jpg" width="40" height="40" className="rounded-circle"/>} >
+              <NavDropdown alignRight title={<img src="https://www.tutorialrepublic.com/examples/images/avatar/3.jpg" alt="Avatar" width="40" height="40" className="rounded-circle"/>} >
                 <NavDropdown.Item href="/usuario/perfil"><FontAwesomeIcon icon={faUserAlt} className="mr-2" />Perfil</NavDropdown.Item>
                 <NavDropdown.Item href="/usuario/cuenta"><FontAwesomeIcon icon={faUserCircle} className="mr-2" />Cuenta</NavDropdown.Item> 
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="/salir"><FontAwesomeIcon icon={faSignOutAlt} className="mr-2" />Salir</NavDropdown.Item>
+                <NavDropdown.Item onClick={this.logout}><FontAwesomeIcon icon={faSignOutAlt} className="mr-2" />Salir</NavDropdown.Item>
               </NavDropdown>
               </div>
             </Nav>

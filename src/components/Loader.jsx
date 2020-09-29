@@ -1,7 +1,7 @@
 import React from 'react'
 import { Spinner } from 'react-bootstrap'
 
-export default function Cargador({visible}) {
+export default function Loader({visible}) {
     return visible  
         ? <div className="modal-backdrop show">
             <Spinner animation="grow" role="status" variant="info" size="lg" style={{"top": "50%","position": "absolute", "left": "50%"}}>
@@ -9,6 +9,4 @@ export default function Cargador({visible}) {
             </Spinner>
         </div>
         :<></> 
-    
-    
 }

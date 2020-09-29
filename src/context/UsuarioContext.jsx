@@ -1,9 +1,12 @@
 import React from 'react'
 
-export const UsuarioContext = React.createContext({
+const UsuarioContext = React.createContext({
     idUsuario : null,
     nombreUsuario : null,
     nombre : null,
+    correo : null,
     apellido : null
 });
+
+export default UsuarioContext;
 

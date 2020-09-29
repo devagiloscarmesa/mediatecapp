@@ -6,8 +6,7 @@ import {
   faPaperPlane,
   faQuestion,
   faImage,
-  faCopy,
-  faTimes, faAlignLeft
+  faCopy
 } from "@fortawesome/free-solid-svg-icons";
 import SubMenu from "./SubMenu";
 import { Nav, Image } from "react-bootstrap";
@@ -53,17 +52,17 @@ class SideBar extends React.Component {
           </Nav.Item>
 
           <Nav.Item>
-            <Nav.Link href="/">
+            <Link to="/ayuda" className="nav-link">
               <FontAwesomeIcon icon={faQuestion} className="mr-2" />
               Ayuda
-            </Nav.Link>
+            </Link>
           </Nav.Item>
 
           <Nav.Item>
-            <Nav.Link href="/">
+            <Link to="/soporte-tecnico" className="nav-link">
               <FontAwesomeIcon icon={faPaperPlane} className="mr-2" />
               Soporte técnico
-            </Nav.Link>
+            </Link>
           </Nav.Item>
         </Nav>
       </div>

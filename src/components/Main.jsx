@@ -1,13 +1,12 @@
-import React, { Component } from "react";
-import { Col, Container, Nav, Row } from "react-bootstrap";
-import { withRouter } from "react-router";
-import SideBar from "./sidebar/SideBar";
-import Content from "./content/Content";
+import React, { Component } from "react"
+import SideBar from "./sidebar/SideBar"
+import Content from "./content/Content"
+import UsuarioContext from '../context/UsuarioContext'
 
 export default class Main extends Component {
     constructor(props) {
         super()
-        
+
         // Moblie first
         this.state = {
             isOpen: false,
@@ -33,6 +32,11 @@ export default class Main extends Component {
     }
 
     componentDidMount() {
+        if(localStorage.getItem("usuario") != null){
+            this.usuario = JSON.parse(localStorage.getItem("usuario"))
+        }else{
+            this.props.history.push('/iniciar-sesion')
+        }
         this.updateWidth();
         window.addEventListener("resize", this.updateWidth.bind(this));
     }
@@ -44,13 +48,15 @@ export default class Main extends Component {
     toggle = () => {
         this.setState({ isOpen: !this.state.isOpen });
     };
- 
+
     render() {
         return (
             <>
-              <SideBar toggle={this.toggle} isOpen={this.state.isOpen} />
-              <Content toggle={this.toggle} isOpen={this.state.isOpen} {...this.props}/>
+                <UsuarioContext.Provider value={this.usuario}>
+                    <SideBar toggle={this.toggle} isOpen={this.state.isOpen} {...this.props} />
+                    <Content toggle={this.toggle} isOpen={this.state.isOpen} {...this.props} />
+                </UsuarioContext.Provider>
             </>
-          );
+        );
     }
 }

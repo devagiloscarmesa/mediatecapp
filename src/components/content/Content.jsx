@@ -13,7 +13,7 @@ class Content extends React.Component {
         fluid
         className={classNames("content", { "is-open": this.props.isOpen })}
       >
-        <NavBar toggle={this.props.toggle} />
+        <NavBar toggle={this.props.toggle} {...this.props} />
         {React.createElement(this.props.contetent)}
       </Container>
     );
