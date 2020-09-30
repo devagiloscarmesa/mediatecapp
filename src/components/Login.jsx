@@ -58,7 +58,7 @@ export default class Login extends Component {
                 this.props.history.push('/inicio')
             }else{
                 this.setState({ cargando: false })
-                NotificationManager.error('Error', 'Error en el inicio de sesión', 1000);
+                NotificationManager.error('Error en el inicio de sesión', 'Error', 2000);
             }
         }, 1000) 
     }
