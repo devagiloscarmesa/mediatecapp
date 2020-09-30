@@ -5,7 +5,7 @@ import 'react-notifications/lib/notifications.css';
 import {NotificationContainer, NotificationManager} from 'react-notifications'
 import {Link} from 'react-router-dom'
 import logo from '../images/logoMTApp.png'
-import Cargador from './Loader';
+import Loader from './Loader';
 
 export default class Login extends Component {
     constructor(){
@@ -97,7 +97,7 @@ export default class Login extends Component {
                     </Card.Body>
                 </Card>
                 <NotificationContainer/>
-                <Cargador visible={this.state.cargando} />
+                <Loader visible={this.state.cargando} />
             </Container>
         );
     }

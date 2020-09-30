@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap'
 import { CONTRASENA_USUARIO, CUENTA_USUARIO } from '../constantes'
 import Dialog from 'react-bootstrap-dialog'
-import Cargador from './Loader'
+import Loader from './Loader'
 
-export default class RecuperarContrasena extends Component {
+export default class RecoverPassword extends Component {
 
     constructor() {
         super()
@@ -72,7 +72,7 @@ export default class RecuperarContrasena extends Component {
                     </Col>
                 </Row>
                 <Dialog ref={(component) => { this.dialog = component }} />
-                <Cargador visible={this.state.cargando} />
+                <Loader visible={this.state.cargando} />
             </Container>
 
 
