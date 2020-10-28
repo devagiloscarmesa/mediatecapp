@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import {CONTRASENA_USUARIO,CUENTA_USUARIO, ID_USUARIO, APELLIDO_USUARIO, NOMBRE_CUENTA_USUARIO, NOMBRE_USUARIO} from '../constantes'
+import {API_MEDIATEC_APP} from '../constantes'
 import { Button, Card, Col, Container, Form, Image, Row } from 'react-bootstrap';
+import sha1 from 'js-sha1'
 import 'react-notifications/lib/notifications.css';
 import {NotificationContainer, NotificationManager} from 'react-notifications'
 import {Link} from 'react-router-dom'
@@ -17,11 +18,14 @@ export default class Login extends Component {
             contrasena : null
         }
     }
-
-    componentDidMount(){
+ 
+    async componentDidMount(){
+        document.title = this.props.title
         if(localStorage.getItem("usuario") != null){
             let usuario = JSON.parse(localStorage.getItem("usuario"))
-            if(usuario.correo === CUENTA_USUARIO){
+            let respuesta = await fetch(`${API_MEDIATEC_APP}actores?correo=${usuario.correo}`)
+            let us = await respuesta.json()
+            if(us.length > 0){
                 this.props.history.push('/inicio')
             }
         }
@@ -37,30 +41,37 @@ export default class Login extends Component {
         });        
     }
 
+    rand=()=>Math.random(0).toString(36).substr(2)
+
+
     iniciarSesion = (e) =>  {
         e.preventDefault()
 
         this.setState({ cargando: true })
         
-        setTimeout( () => {
-            if(this.state.correo === CUENTA_USUARIO && this.state.contrasena === CONTRASENA_USUARIO){
-                const rand=()=>Math.random(0).toString(36).substr(2);
-                const token=(length)=>(rand()+rand()+rand()+rand()).substr(0,length);
-                localStorage.setItem("usuario", JSON.stringify({
-                        idUsuario : ID_USUARIO,
-                        nombreUsuario : NOMBRE_CUENTA_USUARIO,
-                        nombre : NOMBRE_USUARIO,
-                        correo : CUENTA_USUARIO,
-                        apellido : APELLIDO_USUARIO,
-                        token : token
-                    })
-                )
-                this.props.history.push('/inicio')
-            }else{
+        fetch(`${API_MEDIATEC_APP}actores?correo=${this.state.correo}&contrasena=${sha1(this.state.contrasena)}`)
+            .then(respuesta => respuesta.json())
+            .then(usuario => {
+                if(usuario.length > 0){
+                    usuario = usuario[0]
+                    const token=(length)=>(this.rand()+this.rand()+this.rand()+this.rand()).substr(0,length);
+                    localStorage.setItem("usuario", JSON.stringify({
+                            idUsuario : usuario.id,
+                            nombreUsuario : usuario.correo,
+                            nombre : usuario.nombres,
+                            correo : usuario.correo,
+                            apellido : usuario.apellidos,
+                            token : token,
+                            data : usuario
+                        })
+                    )
+                    this.props.history.push('/inicio')
+                }else{
+                    NotificationManager.error('Error en el inicio de sesión', 'Error', 2000);
+                }
                 this.setState({ cargando: false })
-                NotificationManager.error('Error en el inicio de sesión', 'Error', 2000);
-            }
-        }, 1000) 
+            })
+
     }
 
     render() {
