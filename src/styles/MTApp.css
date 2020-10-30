@@ -4,6 +4,10 @@
     align-items: stretch;
     height: 100vh;
   }
+
+  #loader{
+    z-index: 20000;
+  }
   
   @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
   @import "https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,500,600,700";

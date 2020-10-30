@@ -32,13 +32,13 @@ class SideBar extends React.Component {
           </Nav.Item>
 
           <SubMenu
-            title="Estudiantes"
+            title="Académico"
             icon={faCopy}
             items={[
-              {text : "Listado", link:'/estudiantes/listado'}, 
-              {text : "Notas", link: ""}, 
+              {text : "Estudiantes", link:'/estudiantes'} 
+           /*   {text : "Notas", link: ""}, 
               {text : "PPI", link:""}, 
-              {text : "Asistencia", link : ""}
+              {text : "Asistencia", link : ""} */
             ]}
           />
 

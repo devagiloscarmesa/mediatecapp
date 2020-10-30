@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Table } from 'react-bootstrap'
-import UsuarioContext from '../../context/UsuarioContext'
 import { API_MEDIATEC_APP } from '../../constantes'
 
 

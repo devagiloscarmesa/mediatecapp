@@ -35,9 +35,9 @@ export default class StartApp extends Component {
                     </Row>
 
                     <Row>
-                        {this.state.modulos.map(modulo => {
+                        {this.state.modulos.map((modulo, i) => {
                             let r = faker.random.arrayElement(['primary', 'danger', 'warning', 'info'])
-                            return <Col lg={6} className="mb-5">
+                            return <Col key = {i} lg={6} className="mb-5">
                                 <Accordion defaultActiveKey="0">
                                     <Card bg={r}>
                                         <Accordion.Toggle as={Card.Header} eventKey="0" role="button" aria-expanded="true" className={`btn btn-${r} py-2 shadow-sm with-chevron`}>

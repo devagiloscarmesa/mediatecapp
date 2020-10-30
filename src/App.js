@@ -32,7 +32,7 @@ export default class App extends Component {
             <Route path='/soporte-tecnico' exact render={(props) => <Main {...props} App = {this} contetent = {TechnicalSupport} title={`${TITLE_MEDIATEC_APP} - Soporte técnico`}/>} />
             <Route path='/ayuda' exact render={(props) => <Main {...props} App = {this} contetent = {Help} title={`${TITLE_MEDIATEC_APP} - Ayuda`}/>} />
             <Route path='/usuario/perfil' exact render={(props) => <Main {...props} App = {this} contetent = {ProfileData} title={`${TITLE_MEDIATEC_APP} - Perfil`}/>} />
-            <Route path='/estudiantes/listado' exact render={(props) => <Main {...props} App = {this} contetent = {StudentApp} title={`${TITLE_MEDIATEC_APP} - Estudiantes`}/>} />
+            <Route path='/estudiantes' exact render={(props) => <Main {...props} App = {this} contetent = {StudentApp} title={`${TITLE_MEDIATEC_APP} - Estudiantes`}/>} />
           </Switch>
           </div>
       </BrowserRouter>
