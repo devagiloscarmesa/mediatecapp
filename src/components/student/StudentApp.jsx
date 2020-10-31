@@ -59,6 +59,10 @@ export default class StudentApp extends Component {
     }
 
     eliminarEstudiante = () => {
+        let id_estudiante = e.currentTarget.getAttribute('id_estudiante')
+        let respuesta = await fetch(`${API_MEDIATEC_APP}actores/${id_estudiante}`)
+        let estudiante = await respuesta.json()
+
         this.dialog.show({
             title: 'Greedings',
             body: 'How are you?',
@@ -263,8 +267,8 @@ export default class StudentApp extends Component {
                                 <td>{estudiante.correo}</td>
                                 <td>
                                     <Button id_estudiante={estudiante.id} variant="link" onClick={this.abrirModalEditarEstudiante}><FontAwesomeIcon icon={faEdit} className="mr-2" /></Button>
-                                    <Button variant="link"><FontAwesomeIcon icon={faTrash} className="mr-2" /></Button>
-                                    <Button variant="link"><FontAwesomeIcon icon={faEye} className="mr-2" /></Button>
+                                    <Button id_estudiante={estudiante.id} variant="link"><FontAwesomeIcon icon={faTrash} className="mr-2" /></Button>
+                                    <Button id_estudiante={estudiante.id} variant="link"><FontAwesomeIcon icon={faEye} className="mr-2" /></Button>
                                 </td>
                             </tr>
                         })}
