@@ -37,9 +37,7 @@ export default class StudentApp extends Component {
         const name = target.name;
         let estudiante = Object.assign({}, this.state.estudiante)
         estudiante[name] = value
-        this.setState({
-            estudiante: estudiante
-        });
+        this.setState({estudiante: estudiante})
     }
 
     cambioFechaNacimiento = fecha => {
