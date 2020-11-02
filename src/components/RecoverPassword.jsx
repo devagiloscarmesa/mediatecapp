@@ -38,8 +38,6 @@ export default class RecoverPassword extends Component {
             let respuesta_us = await fetch(`${API_MEDIATEC_APP}actores?correo=${this.state.correo}`)
             let usuario = await respuesta_us.json()
 
-            
-
             this.setState({ cargando: false })
             if(usuario.length > 0){    
                 usuario = usuario[0]
@@ -54,14 +52,13 @@ export default class RecoverPassword extends Component {
                 let respuesta_us_p = await fetch(request)
                 let usuario_moficado = await respuesta_us_p.json()
 
-                console.log(usuario_moficado)
                 this.dialog.show({
                 title: 'Credenciales',
                 body: <>
-                    <b>Cuenta: </b> {usuario.correo}<br />
-                    <b>Nombre: </b> {usuario.nombres}<br />
-                    <b>Apellido: </b> {usuario.apellidos}<br />
-                    <b>Documento: </b> {usuario.documento}<br />
+                    <b>Cuenta: </b> {usuario_moficado.correo}<br />
+                    <b>Nombre: </b> {usuario_moficado.nombres}<br />
+                    <b>Apellido: </b> {usuario_moficado.apellidos}<br />
+                    <b>Documento: </b> {usuario_moficado.documento}<br />
                     <b>Nueva contraseña: </b> {contrasena}
                 </>,
                 actions: [
