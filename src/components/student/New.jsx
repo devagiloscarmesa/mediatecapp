@@ -23,7 +23,7 @@ export default class New extends Component {
         let estudiante = Object.assign({}, this.studentApp.state.estudiante)
         let request = null, respuesta = null
         //Crear un estudiante
-        estudiante.id = faker.random.uuid
+        estudiante.id = faker.random.number()
         estudiante.tipo_actor_id = 1
         estudiante.fecha_creacion = moment().format('YYYY-MM-DD HH:mm:ss')
         estudiante.fecha_nacimiento = moment(estudiante.fecha_nacimiento).format('YYYY-MM-DD')
