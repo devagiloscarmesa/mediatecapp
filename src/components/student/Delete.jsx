@@ -8,7 +8,7 @@ export default class Delete extends Component {
         super()
         this.studentApp = props.studentApp
     }
-
+ 
     delete = async () => {
         if (this.studentApp.state.showDeleteModal) {
             let id_estudiante = this.studentApp.state.estudiante.id
