@@ -27,10 +27,6 @@ export default class StudentApp extends Component {
         }
     }
 
-    recargarListaEstudiantes = async () => {
-        return fetch(`${API_MEDIATEC_APP}actores?tipo_actor_id=1`).then(respuesta => respuesta.json()).then(estudiantes => this.setState({ estudiantes: estudiantes }))
-    }
-
     cambioEntradaCampoEstudiante = (event) => {
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
@@ -45,6 +41,10 @@ export default class StudentApp extends Component {
         estudiante['fecha_nacimiento'] = fecha
         this.setState({ estudiante: estudiante });
     }
+
+    recargarListaEstudiantes = async () => {
+        return fetch(`${API_MEDIATEC_APP}actores?tipo_actor_id=1`).then(respuesta => respuesta.json()).then(estudiantes => this.setState({ estudiantes: estudiantes }))
+    }    
 
     async componentDidMount() {
         await Promise.all([
