@@ -7,7 +7,7 @@ const modulos = require('./routes/modulos');
 const colegios = require('./routes/colegios');
 
 // Ajustes
-app.set('port',3000);
+app.set('port',process.env.PORT || 5000);
 
 // Middlewares
 app.use(morgan('dev'))
