@@ -1,18 +1,15 @@
 const mysql = require('mysql');
-const mysqlConnection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'base_datos_semana_8',
-  multipleStatements: true
-});
-mysqlConnection.connect(function (err) {
-  if (err) {
-    console.error(err);
-    return;
-  } else {
-    console.log('base de datos conectada!');
-  }
+var util = require('util');
+
+const pool  = mysql.createPool({
+  connectionLimit : 10,
+  host            : 'bovfmvjamitccwuerfzi-mysql.services.clever-cloud.com',
+  user            : 'umocb4kxknnnim1y',
+  password        : '19auAYJl1TXzQRlT4cuO',
+  database        : 'bovfmvjamitccwuerfzi'
 });
 
-module.exports = mysqlConnection;
+pool.query = util.promisify(pool.query)
+
+
+module.exports = pool;

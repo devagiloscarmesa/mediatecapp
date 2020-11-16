@@ -1,6 +1,8 @@
-const express = require('express');
+const express = require('express')
+const morgan = require("morgan")
+	
 const app = express();
-const routes = require('./routes/routes');
+const actores = require('./routes/actores');
 const modulos = require('./routes/modulos');
 const colegios = require('./routes/colegios');
 
@@ -8,12 +10,13 @@ const colegios = require('./routes/colegios');
 app.set('port',3000);
 
 // Middlewares
+app.use(morgan('dev'))
 app.use(express.json());
 
 // Routes//
-app.use('/api',routes);
-app.use('/api/modulos',modulos);
-app.use('/api/colegios',colegios);
+app.use('/api/',actores);
+app.use('/api/',modulos);
+app.use('/api/',colegios);
 
 // Ajustes del servidor
 app.listen(app.get('port'), () => {
