@@ -1,6 +1,28 @@
 const { Router } = require("express")
 const router = Router()
+const path = require('path');
+const multer = require('multer');
+const { v4: uuidv4 } = require('uuid');
 const connection = require('../db/mysql')
+
+const cargador = multer({
+    storage: multer.diskStorage({
+        destination: function (req, file, cb) {
+        cb(null, path.join(__dirname, '../public/uploads'))
+      }, 
+      filename: function (req, file, cb) {
+        cb(null, Date.now() + '-' +file.originalname )
+      }
+    })
+})
+
+router.post('/actor/cargaimagen-perfil', cargador.single('imagen_perfil'), async(req, res) => {
+    if (req.file) {
+        res.json({ mensaje: 'Imagen cargada', archivo: req.file })
+    } else {
+        res.json({ mensaje: 'Imagen no cargada' })
+    }
+})
 
 router.get("/actores", (req, res) => {
     connection.query('SELECT * FROM actores', (error, rows, fields) => {
@@ -91,5 +113,6 @@ router.delete('/actor/:id', (req, res) => {
             }
         });
 });
+
 
 module.exports = router
