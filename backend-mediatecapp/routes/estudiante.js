@@ -5,7 +5,7 @@ const mysqlConnection = require('../db/mysql');
 
 router.get('/estudiantes', (req, res) => {
 
-  mysqlConnection.query('SELECT * FROM actores ', (err, rows, fields) => {
+  mysqlConnection.query('SELECT * FROM actores WHERE tipo_actor_id = 1', (err, rows, fields) => {
     if (!err) {
       res.json(rows);
     } else {
@@ -16,7 +16,7 @@ router.get('/estudiantes', (req, res) => {
 
 router.get('/estudiante/:id', (req, res) => {
   const { id } = req.params;
-  mysqlConnection.query('SELECT * FROM actores WHERE id = ?',
+  mysqlConnection.query('SELECT * FROM actores WHERE id = ? AND tipo_actor_id = 1',
     [id], (err, rows, fields) => {
       if (!err) {
         res.json(rows[0]);
@@ -26,7 +26,7 @@ router.get('/estudiante/:id', (req, res) => {
     });
 });
 
-router.post('/nuevo-estudiante', (req, res) => {
+router.post('/estudiante', (req, res) => {
 
   const { nombres, apellidos, correo, documento, telefono_celular, fecha_nacimiento,
     institucion_id } = req.body;
@@ -35,8 +35,8 @@ router.post('/nuevo-estudiante', (req, res) => {
     fecha_nacimiento, institucion_id];
 
   let nuevoAlumno = `INSERT INTO actores(nombres,apellidos,correo,documento,
-  telefono_celular,fecha_nacimiento,institucion_id)
-                  VALUES(?,?,?,?,?,?,?)`;
+  telefono_celular,fecha_nacimiento,institucion_id, tipo_actor_id)
+                  VALUES(?, ?, ?, ?, ?, ?, ?, 1)`;
   mysqlConnection.query(nuevoAlumno, alumno, (err, results, fields) => {
     if (err) {
       return console.error(err.message);
@@ -51,7 +51,7 @@ router.put('/estudiante/:id', (req, res) => {
   const { id } = req.params;
   mysqlConnection.query(`UPDATE actores SET nombres = ?,apellidos = ?,
   correo = ?,documento = ?,telefono_celular = ?,fecha_nacimiento = ?,
-  institucion_id = ? WHERE id = ?`,
+  institucion_id = ? WHERE id = ? AND tipo_actor_id = 1`,
     [nombres, apellidos, correo, documento, telefono_celular, fecha_nacimiento,
       institucion_id, id], (err, rows, fields) => {
         if (!err) {
@@ -64,7 +64,7 @@ router.put('/estudiante/:id', (req, res) => {
 
 router.delete('/estudiante/:id', (req, res) => {
   const { id } = req.params;
-  mysqlConnection.query('DELETE FROM actores WHERE id = ?',
+  mysqlConnection.query('UPDATE actores SET estado_actor_id = 3 WHERE id = ? AND tipo_actor_id = 1',
     [id], (err, rows, fields) => {
       if (!err) {
         res.json({ status: 'Estudiante eliminado!' });
