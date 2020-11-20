@@ -2,6 +2,7 @@ const express = require('express')
 const morgan = require("morgan")
 const multer = require('multer');
 const path = require('path');
+var cors = require('cors')
 const { v4: uuidv4 } = require('uuid');
 const app = express();
 const estudiante = require('./routes/estudiante');
@@ -23,6 +24,7 @@ const storage = multer.diskStorage({
 // Middlewares
 app.use(morgan('dev'))
 app.use(express.json())
+app.use(cors())
 //app.use(multer({storage}).single('imagen_perfil'));
 
 // Routes//
