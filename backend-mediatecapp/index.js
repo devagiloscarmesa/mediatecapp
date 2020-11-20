@@ -14,12 +14,6 @@ const institucion = require('./routes/institucion');
 app.set('port',process.env.PORT || 5000);
 
 //Multer Middlwares
-/*
-const storage = multer.diskStorage({
-  //Creamos la carpeta si no existe
-  destination: path.join(__dirname, 'public/uploads'),
-  filename: (req, file, cb) => cb(null, uuidv4() + path.extname(file.originalname))
-}); */
 
 // Middlewares
 app.use(morgan('dev'))
@@ -32,6 +26,8 @@ app.use('/api/',actor);
 app.use('/api/',estudiante);
 app.use('/api/',modulo);
 app.use('/api/',institucion);
+
+app.get('/', (req, res) => res.send('<h1>Media Técnica App</h1>'))
 
 // Ajustes del servidor
 app.listen(app.get('port'), () => {
