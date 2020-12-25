@@ -31,8 +31,8 @@ class NavBar extends React.Component {
 
               <div id="drop-user-menu">
               <NavDropdown alignRight title={<img src="https://www.tutorialrepublic.com/examples/images/avatar/3.jpg" alt="Avatar" width="40" height="40" className="rounded-circle"/>} >
-                <Link to="/usuario/perfil" className="dropdown-item"><FontAwesomeIcon icon={faUserAlt} className="mr-2" />Perfil</Link>
-                <Link to="/usuario/perfil" className="dropdown-item"><FontAwesomeIcon icon={faUserCircle} className="mr-2" />Cuenta</Link> 
+                <Link to="/usuario/perfil" className="dropdown-item" onClick={() => document.body.click()}><FontAwesomeIcon icon={faUserAlt} className="mr-2" />Perfil</Link>
+                <Link to="/usuario/perfil" className="dropdown-item" onClick={() => document.body.click()}><FontAwesomeIcon icon={faUserCircle} className="mr-2" />Cuenta</Link> 
                 <NavDropdown.Divider />
                 <NavDropdown.Item onClick={this.logout}><FontAwesomeIcon icon={faSignOutAlt} className="mr-2" />Salir</NavDropdown.Item>
               </NavDropdown>

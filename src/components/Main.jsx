@@ -50,6 +50,7 @@ export default class Main extends Component {
     };
 
     render() {
+        document.title = this.props.title
         return (
             <>
                 <UsuarioContext.Provider value={this.usuario}>

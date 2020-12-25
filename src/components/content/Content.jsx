@@ -14,7 +14,7 @@ class Content extends React.Component {
         className={classNames("content", { "is-open": this.props.isOpen })}
       >
         <NavBar toggle={this.props.toggle} {...this.props} />
-        {React.createElement(this.props.contetent)}
+        {React.createElement(this.props.contetent,this.props)}
       </Container>
     );
   }
